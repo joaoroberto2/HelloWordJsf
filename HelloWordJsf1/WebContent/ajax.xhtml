@@ -1,0 +1,57 @@
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html">
+<h:head>
+	<title>Hello, World!</title>
+
+</h:head>
+<h:body>
+	<h:form>
+		<h1>AJAX COM JSF</h1>
+		<hr />
+
+		<h:outputLabel value="nome" />
+		<h:inputText id="input" value="#{ajaxController.nome}" />
+		<h:commandButton value="click"
+			actionListener="#{ajaxController.imprimirConsole}">
+			<f:ajax render="label" execute="input" />
+		</h:commandButton>
+		<h:outputLabel id="label" value="#{ajaxController.nome}" />
+
+		<hr />
+		<h2>Evento clik</h2>
+		<h:outputLabel value="nome" />
+		<h:inputText id="inputclick" value="#{ajaxController.nome}" />
+		<h:commandButton value="click">
+			<f:ajax event="click" render="labelclick" execute="inputclick"
+				listener="#{ajaxController.imprimirConsole}" />
+		</h:commandButton>
+
+		<h:outputLabel id="labelclick" value="#{ajaxController.nome}" />
+
+		<hr />
+		<h2>Evento blur</h2>
+		<h:outputLabel value="nome" />
+		<h:inputText id="inputBlur" value="#{ajaxController.nome}">
+			<f:ajax event="blur" render="labelBlur" execute="inputBlur" />
+		</h:inputText>
+		<h:outputLabel id="labelBlur" value="#{ajaxController.nome}" />
+
+		<hr />
+		<h2>Evento keyup</h2>
+		<h:outputLabel value="nome" />
+		<h:inputText  value="#{ajaxController.nome}">
+			<f:ajax event="keyup" render="labelkeyup" execute="@this" />
+		</h:inputText>
+		<h:outputLabel id="labelkeyup" value="#{ajaxController.nome}" />
+		
+		<hr />
+		<h2>Evento mouseover</h2>
+		<h:outputLabel value="nome" />
+		<h:inputText  value="#{ajaxController.nome}">
+			<f:ajax event="mouseover" render="labelmouseover" execute="@this" />
+		</h:inputText>
+		<h:outputLabel id="labelmouseover" value="#{ajaxController.nome}" />
+	</h:form>
+</h:body>
+</html>
